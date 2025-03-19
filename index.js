@@ -31,78 +31,107 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    // CALL toLowerCase with humanChoice RETURNING humanChoiceNormalized
-    // CALL toLowerCase with computerChoice RETURNING computerChoiceNormalized
-    // IF humanChoiceNormalized is equal to "rock" THEN
-    //   IF computerChoiceNormalized is equal to "rock" THEN
-    //     Display message: "It's a draw!"
-    //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
-    //     Display message: "You lose! Paper beats Rock"
-    //     Increment computerScore
-    //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
-    //     Display message: "You win! Rock beats Scissors"
-    //     Increment humanScore
-    //   ENDIF
-    // ELSE IF humanChoiceNormalized is equal to "paper" THEN
-    //   IF computerChoiceNormalized is equal to "rock" THEN
-    //     Display message: "You win! Paper beats Rock"
-    //     Increment humanScore
-    //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
-    //     Display message: "It's a draw!"
-    //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
-    //     Display message: "You lose! Scissors beats Paper"
-    //     Increment computerScore
-    //   ENDIF
-    // ELSE IF humanChoiceNormalized is equal to "scissors" THEN
-    //   IF computerChoiceNormalized is equal to "rock" THEN
-    //     Display message: "You lose! Rock beats Scissors"
-    //     Increment computerScore
-    //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
-    //     Display message: "You win! Scissors beats Paper"
-    //     Increment humanScore
-    //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
-    //     Display message: "It's a draw!"
-    //   ENDIF
-    // ENDIF
+    function playRound(humanChoice, computerChoice) {
+        // CALL toLowerCase with humanChoice RETURNING humanChoiceNormalized
+        // CALL toLowerCase with computerChoice RETURNING computerChoiceNormalized
+        // IF humanChoiceNormalized is equal to "rock" THEN
+        //   IF computerChoiceNormalized is equal to "rock" THEN
+        //     Display message: "It's a draw!"
+        //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
+        //     Display message: "You lose! Paper beats Rock"
+        //     Increment computerScore
+        //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
+        //     Display message: "You win! Rock beats Scissors"
+        //     Increment humanScore
+        //   ENDIF
+        // ELSE IF humanChoiceNormalized is equal to "paper" THEN
+        //   IF computerChoiceNormalized is equal to "rock" THEN
+        //     Display message: "You win! Paper beats Rock"
+        //     Increment humanScore
+        //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
+        //     Display message: "It's a draw!"
+        //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
+        //     Display message: "You lose! Scissors beats Paper"
+        //     Increment computerScore
+        //   ENDIF
+        // ELSE IF humanChoiceNormalized is equal to "scissors" THEN
+        //   IF computerChoiceNormalized is equal to "rock" THEN
+        //     Display message: "You lose! Rock beats Scissors"
+        //     Increment computerScore
+        //   ELSE IF computerChoiceNormalized is equal to "paper" THEN
+        //     Display message: "You win! Scissors beats Paper"
+        //     Increment humanScore
+        //   ELSE IF computerChoiceNormalized is equal to "scissors" THEN
+        //     Display message: "It's a draw!"
+        //   ENDIF
+        // ENDIF
 
-    const humanChoiceNormalized = humanChoice.toLowerCase()
-    const computerChoiceNormalized = computerChoice.toLowerCase();
+        const humanChoiceNormalized = humanChoice.toLowerCase()
+        const computerChoiceNormalized = computerChoice.toLowerCase();
 
-    if (humanChoiceNormalized === "rock") {
-        if (computerChoiceNormalized === "rock") {
-            console.log("It's a draw!");
-        } else if (computerChoiceNormalized === "paper") {
-            console.log("You lose! Paper beats Rock");
-            computerScore++;
-        } else if (computerChoiceNormalized === "scissors") {
-            console.log("You win! Rock beats Scissors");
-            humanScore++;
-        }
-    } else if (humanChoiceNormalized === "paper") {
-        if (computerChoiceNormalized === "rock") {
-            console.log("You win! Paper beats Rock");
-            humanScore++;
-        } else if (computerChoiceNormalized === "paper") {
-            console.log("It's a draw!");
-        } else if (computerChoiceNormalized === "scissors") {
-            console.log("You lose! Scissors beats Paper");
-            computerScore++;
-        }
-    } else if (humanChoiceNormalized === "scissors") {
-        if (computerChoiceNormalized === "rock") {
-            console.log("You lose! Rock beats Scissors");
-            computerScore++;
-        } else if (computerChoiceNormalized === "paper") {
-            console.log("You win! Scissors beats Paper");
-            humanScore++;
-        } else if (computerChoiceNormalized === "scissors") {
-            console.log("It's a draw!");
+        if (humanChoiceNormalized === "rock") {
+            if (computerChoiceNormalized === "rock") {
+                console.log("It's a draw!");
+            } else if (computerChoiceNormalized === "paper") {
+                console.log("You lose! Paper beats Rock");
+                computerScore++;
+            } else if (computerChoiceNormalized === "scissors") {
+                console.log("You win! Rock beats Scissors");
+                humanScore++;
+            }
+        } else if (humanChoiceNormalized === "paper") {
+            if (computerChoiceNormalized === "rock") {
+                console.log("You win! Paper beats Rock");
+                humanScore++;
+            } else if (computerChoiceNormalized === "paper") {
+                console.log("It's a draw!");
+            } else if (computerChoiceNormalized === "scissors") {
+                console.log("You lose! Scissors beats Paper");
+                computerScore++;
+            }
+        } else if (humanChoiceNormalized === "scissors") {
+            if (computerChoiceNormalized === "rock") {
+                console.log("You lose! Rock beats Scissors");
+                computerScore++;
+            } else if (computerChoiceNormalized === "paper") {
+                console.log("You win! Scissors beats Paper");
+                humanScore++;
+            } else if (computerChoiceNormalized === "scissors") {
+                console.log("It's a draw!");
+            }
         }
     }
+
+    // FOR five times iteration
+    //   CALL getHumanChoice RETURNING humanSelection
+    //   CALL getComputerChoice RETURNING computerSelection
+    //   CALL playRound
+
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+    
+        playRound(humanSelection, computerSelection); 
+    }
+
+    // IF humanScore is larger than computerScore
+    //   Display message: "You win!"
+    // ELSE
+    //   Display message: "You lose!"
+    // ENDIF
+    // Display player score and computer score
+
+    if (humanScore > computerScore) {
+        console.log("You win!");
+    } else {
+        console.log("You lose!");
+    }
+
+    console.log(`Player: ${humanScore} | Computer: ${computerScore}`);
 }
 
-playRound("rock", "paper");
+playGame()
