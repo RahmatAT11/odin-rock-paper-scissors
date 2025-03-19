@@ -23,4 +23,12 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    // Read an input from human between rock/paper/scissors
+    // Set humanChoice to input from before;
+    // Return humanChoice
+    const humanChoice = prompt("Enter your choice (rock/paper/scissors): ");
+    return humanChoice;
+}
+
+console.log(getHumanChoice())
