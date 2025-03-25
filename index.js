@@ -21,6 +21,7 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    const buttonChoices = document.querySelectorAll(".btn");
 
     function playRound(humanChoice, computerChoice) {
 
@@ -59,6 +60,12 @@ function playGame() {
             }
         }
     }
+
+    buttonChoices.forEach((button) => {
+      button.addEventListener('click', () => {
+        playRound(button.id, getComputerChoice());
+      });  
+    })
 
     if (humanScore > computerScore) {
         console.log("You win!");
