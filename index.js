@@ -21,9 +21,12 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+
     const buttonChoices = document.querySelectorAll(".btn");
     const playerScoreDisplay = document.querySelector("#player-score");
     const computerScoreDisplay = document.querySelector("#computer-score");
+    const resultDisplay = document.createElement("div");
+    resultDisplay.id = "winner";
 
     function playRound(humanChoice, computerChoice) {
 
@@ -68,14 +71,17 @@ function playGame() {
         playRound(button.id, getComputerChoice());
         playerScoreDisplay.textContent = humanScore;
         computerScoreDisplay.textContent = computerScore;
+
+        if (humanScore >= 5) {
+            resultDisplay.textContent = "You win!";
+            document.body.appendChild(resultDisplay);
+        } else if (computerScore >= 5) {
+            resultDisplay.textContent = "You lose!";
+            document.body.appendChild(resultDisplay);
+        }
       });  
     })
 
-    if (humanScore > computerScore) {
-        console.log("You win!");
-    } else {
-        console.log("You lose!");
-    }
 }
 
 playGame()
