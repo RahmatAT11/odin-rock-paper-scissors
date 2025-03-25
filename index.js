@@ -22,6 +22,8 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
     const buttonChoices = document.querySelectorAll(".btn");
+    const playerScoreDisplay = document.querySelector("#player-score");
+    const computerScoreDisplay = document.querySelector("#computer-score");
 
     function playRound(humanChoice, computerChoice) {
 
@@ -64,6 +66,8 @@ function playGame() {
     buttonChoices.forEach((button) => {
       button.addEventListener('click', () => {
         playRound(button.id, getComputerChoice());
+        playerScoreDisplay.textContent = humanScore;
+        computerScoreDisplay.textContent = computerScore;
       });  
     })
 
@@ -72,8 +76,6 @@ function playGame() {
     } else {
         console.log("You lose!");
     }
-
-    console.log(`Player: ${humanScore} | Computer: ${computerScore}`);
 }
 
 playGame()
